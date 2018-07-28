@@ -36,12 +36,9 @@ from .common import *
 
 def remap(sam_path, gene, sam, cn_sol, tempdir=None, force=True, cleanup=True):
 	
-	database_file = '/home/frashidi/_CYP2D/resource/cyp2d6.yml'
 	samtools_path = '~/Dropbox/bin/samtools'
 	bowtie2_path = '~/Dropbox/bin/bowtie2/'
 	hg19_path = '/data/frashidi/hg19/hg19.fa'
-	bwa_path = 'bwa'
-	isBowtie = True
 
 	infile = sam_path
 	outbamfile = '{}.remap.bam'.format(os.path.basename(sam_path))
@@ -164,23 +161,6 @@ def remap(sam_path, gene, sam, cn_sol, tempdir=None, force=True, cleanup=True):
 						for line in infile:
 							outfile.write(line)
 
-		def merge_sam_bwa(keys, filename):
-			first = '@HD	VN:1.0	SO:unsorted\n'
-			with open('./temp/{}.sam'.format(filename), 'w') as outfile:
-				for fname in keys:
-					with open('./temp/{}.sam'.format(fname)) as infile:
-						i = 0
-						for line in infile:
-							i += 1
-							if i >= 3:
-								outfile.write(line)
-							elif i == 1:
-								first += line
-			with open('./temp/{}.sam'.format(filename), 'r+') as outfile:
-				file_data = outfile.read()
-				outfile.seek(0, 0)
-				outfile.write(first + file_data)
-
 		def merge_sam_bowtie2(keys, filename):
 			first = '@HD	VN:1.0	SO:unsorted\n'
 			with open('./temp/{}.sam'.format(filename), 'w') as outfile:
@@ -205,18 +185,10 @@ def remap(sam_path, gene, sam, cn_sol, tempdir=None, force=True, cleanup=True):
 		merge_fasta(keys, 'candidate')
 
 		for k in keys:
-			if isBowtie:
-				os.system('{}/bowtie2-build ./temp/{}.fa ./temp/{} > /dev/null 2>&1'.format(bowtie2_path, k, k))
-				os.system('{}/bowtie2 -x ./temp/{} ./temp/read.fq -S ./temp/{}.sam > /dev/null 2>&1'.format(bowtie2_path, k, k))
-			else:
-				os.system('{} index ./temp/{}.fa > /dev/null 2>&1'.format(bwa_path, k))
-				os.system('{} aln ./temp/{}.fa ./temp/read.fq > ./temp/{}.sai'.format(bwa_path, k, k))
-				os.system('{} samse ./temp/{}.fa ./temp/{}.sai ./temp/read.fq > ./temp/{}.sam'.format(bwa_path, k, k, k))
-		if isBowtie:	
-			merge_sam_bowtie2(keys, 'candidate')
-		else:
-			merge_sam_bwa(keys, 'candidate')
-
+			os.system('{}/bowtie2-build ./temp/{}.fa ./temp/{} > /dev/null 2>&1'.format(bowtie2_path, k, k))
+			os.system('{}/bowtie2 -x ./temp/{} ./temp/read.fq -S ./temp/{}.sam > /dev/null 2>&1'.format(bowtie2_path, k, k))
+		merge_sam_bowtie2(keys, 'candidate')
+		
 		os.system('{} sort ./temp/candidate.sam > ./temp/candidate.bam'.format(samtools_path))
 		os.system('{} index ./temp/candidate.bam'.format(samtools_path))
 
