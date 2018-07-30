@@ -407,7 +407,7 @@ def remap(sam_path, gene, sam, cn_sol, tempdir, hg19_path="genome.fa"):
       header = bamfile.header.copy()
       out = pysam.Samfile('{tmp}/output.sam'.format(tmp=tempdir), 'w', header=header)
       for i in range(n):
-         bamfile = pysam.AlignmentFile('./temp/output{}.bam'.format(i, tmp=tempdir), 'r')
+         bamfile = pysam.AlignmentFile('{tmp}/output{}.bam'.format(i, tmp=tempdir), 'r')
          name_indexed = pysam.IndexedReads(bamfile)
          name_indexed.build()
          header = bamfile.header.copy()
