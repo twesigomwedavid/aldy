@@ -37,7 +37,7 @@ def cmd(cmd):
 
 
 @timing
-def optimize(gene, reads, alleles, copy_number):
+def optimize(gene, reads, alleles, copy_number, avg_coverage):
    model = lpinterface.model('reads', 'gurobi')
 
    # Binary variables for reads
@@ -88,7 +88,7 @@ def optimize(gene, reads, alleles, copy_number):
 
    # Objective
    score = lambda r, m: len(r.query_sequence) - r.get_tag('NM')
-   obj  = model.quicksum(score(*reads[r][a]) * x[r][a] for r in x for a in x[r])
+   obj  = model.quicksum(avg_coverage*score(*reads[r][a]) * x[r][a] for r in x for a in x[r])
    obj -= model.quicksum(y.values())
    
    # Existence constraints
@@ -163,6 +163,9 @@ def realign(alleles, tempdir, sam_path):
             print('>{}'.format(i), file=f)
             print('\n'.join(textwrap.wrap(alleles[i][1])), file=f)
          out = cmd('bowtie2-build {0}/{1}.fa {0}/{1}'.format(tempdir, i))
+         # out = cmd('samtools faidx {0}/{1}.fa'.format(tempdir, i))
+         # out = cmd('/home/frashidi/Dropbox/bin/mrfast --index {0}/{1}.fa'.format(tempdir, i))
+         # out = cmd('bwa index {0}/{1}.fa'.format(tempdir, i))
          log.trace(out)
    log.warn('Creating bowtie2 reference')
    makeref()
@@ -172,6 +175,9 @@ def realign(alleles, tempdir, sam_path):
       cmd('samtools view -h {} {} | samtools fastq - > {}'.format(path, ' '.join(regions), newpath))
       for i in '67':
          out = cmd('bowtie2 -x {0}/{1} {2} -S {2}.{1}.sam'.format(tempdir, i, newpath))
+         # out = cmd('/home/frashidi/Dropbox/bin/mrfast -e 2 --search {0}/{1}.fa --seq {2} -o {2}.{1}.t.sam --best'.format(tempdir, i, newpath))
+         # cmd('cat {1}.{0}.t.sam | head -n -2 > {1}.{0}.sam'.format(i, newpath))
+         # out = cmd('bwa mem -h 12 {0}/{1}.fa {2} > {2}.{1}.sam'.format(tempdir, i, newpath))
          log.debug(out)
    log.warn('Aligning reads via bowtie2')
    regions = ['chr22:{}-{}'.format(*alleles[i][0]) for i in alleles]
@@ -233,7 +239,8 @@ def remap(sam_path, gene, sam, cn_sol, tempdir=None, force=True, cleanup=False, 
       reads = get_reads(alleles, tempdir, sam_path)
       
       log.warn('Optimizing...')
-      reads = optimize(gene, reads, alleles, cn_sol)
+      avg_coverage = round(sum(sam.total(pos) for pos in sam.coverage) / float(len(sam.coverage)))
+      reads = optimize(gene, reads, alleles, cn_sol, avg_coverage)
 
       out = '{}.remap_ibrahim.bam'.format(os.path.basename(sam_path)) 
       if os.path.exists(out) and not force:
