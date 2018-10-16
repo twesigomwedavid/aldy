@@ -119,10 +119,11 @@ def estimate_cn(gene, sam, profile, solution, solver):
    if os.path.exists(profile_path):
       profile = load_profile(profile_path)
    else:
-      profile = load_profile(profile, bam=True, region=[
-         (gene.name,) + gene.region,
-         ('CN',) + gene.cnv_region
-         ])
+      profile = load_profile(profile)
+      # profile = load_profile(profile, bam=True, region=[
+      #    (gene.name,) + gene.region,
+      #    ('CN',) + gene.cnv_region
+      #    ])
    normalize_coverage(gene, sam, profile)
 
    coverage_diff = get_difference(sam.region_coverage, gene.unique_regions)
