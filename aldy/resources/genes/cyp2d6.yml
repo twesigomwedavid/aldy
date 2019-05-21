@@ -1372,21 +1372,21 @@
     "CYP2D6*42": {
       "phenotype": {"invivo": "None (dx)", "invitro": ""}, 
       "mutations": [
-        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
-        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]}, 
-        {"pos": 42523533, "op": "INS.ac", "old": "3259:insGT", "functional": 3, "dbsnp": ["rs72549346"]}, 
-        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
+#        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
+#        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]}, 
+        {"pos": 42523532, "op": "INS.ca", "old": "3258:insGT", "functional": 3, "dbsnp": ["rs72549346"]}, 
+#        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
       ]
     }, 
-    "CYP2D6*42W": {
-      "phenotype": {"invivo": "None (dx)", "invitro": ""}, 
-      "mutations": [
-        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
-        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]}, 
-        {"pos": 42523532, "op": "INS.ca", "old": "3258:insGT", "functional": 3, "dbsnp": []}, 
-        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
-      ]
-    }, 
+#    "CYP2D6*42W": {
+#      "phenotype": {"invivo": "None (dx)", "invitro": ""}, 
+#      "mutations": [
+#        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
+#        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]}, 
+#        {"pos": 42523532, "op": "INS.ca", "old": "3258:insGT", "functional": 3, "dbsnp": []}, 
+#        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
+#      ]
+#    }, 
     "CYP2D6*43": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
