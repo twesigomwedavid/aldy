@@ -37,7 +37,7 @@
   "max_cn": {
   }, 
   "alleles": {
-    "CYP2D6*1": {
+    "CYP2D6*1A": {
       "phenotype": {"invivo": "Normal", "invitro": "Normal"}, 
       "mutations": []
     }, 
@@ -101,7 +101,12 @@
         {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}, 
         {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
         {"pos": 42526048, "op": "SNP.GC", "old": "746:C>G", "functional": 0, "dbsnp": ["rs28371701"]}, 
-        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}
+        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]},
+        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+        {"pos": 42523208, "op": "SNP.CT", "old": "3584:G>A", "functional": 0, "dbsnp": ["rs28371730"]},
+        {"pos": 42523002, "op": "SNP.GA", "old": "3790:C>T", "functional": 0, "dbsnp": ["rs4987144"]},
+        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]},
+        {"pos": 42528381, "op": "SNP.GC", "old": "-1584:C>G", "functional": 2, "dbsnp": ["rs1080985"]}
       ]
     }, 
     "CYP2D6*2B": {
