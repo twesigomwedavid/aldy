@@ -909,6 +909,8 @@
         {"pos": 42525755, "op": "SNP.GA", "old": "1039:C>T", "functional": 0, "dbsnp": ["rs1081003"]}, 
         {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
         {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
+        {"pos": 42524695, "op": "SNP.TC", "old": "2097:A>G", "functional": 0, "dbsnp": ["rs2267447"]}, 
+        {"pos": 42522391, "op": "SNP.GA", "old": "4401:C>T", "functional": 0, "dbsnp": ["rs28371738"]}
       ]
     }, 
     "CYP2D6*10BW": {
