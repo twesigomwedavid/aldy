@@ -1347,10 +1347,12 @@
         {"pos": 42527792, "op": "SNP.CT", "old": "-1000:G>A", "functional": 0, "dbsnp": ["rs1080989"]}, 
         {"pos": 42526693, "op": "SNP.GA", "old": "100:C>T", "functional": 1, "dbsnp": ["rs1065852"]}, 
         {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
-        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}, 
+        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]},
+        {"pos": 42526048, "op": "SNP.GC", "old": "746:C>G", "functional": 0, "dbsnp": ["rs28371701"]},
         {"pos": 42525755, "op": "SNP.GA", "old": "1039:C>T", "functional": 0, "dbsnp": ["rs1081003"]}, 
         {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
         {"pos": 42524695, "op": "SNP.TC", "old": "2097:A>G", "functional": 0, "dbsnp": ["rs2267447"]}, 
+        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]},
         {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
         {"pos": 42523210, "op": "SNP.TC", "old": "3582:A>G", "functional": 0, "dbsnp": ["rs2004511"]},
         {"pos": 42522668, "op": "SNP.CG", "old": "4124:G>C", "functional": 0, "dbsnp": ["rs1135832"]}, 
@@ -1367,8 +1369,9 @@
         {"pos": 42522623, "op": "SNP.AG", "old": "4169:T>C", "functional": 0, "dbsnp": ["rs747998333"]}, 
         {"pos": 42522620, "op": "SNP.GA", "old": "4172:C>T", "functional": 0, "dbsnp": ["rs74478221"]}, 
         {"pos": 42522624, "op": "SNP.GC", "old": "4168:C>G", "functional": 0, "dbsnp": ["rs75467367"]},
-        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
-        #{"pos": "pseudogene", "op": "e9+", "old": "", "functional": 0, "dbsnp": []}
+        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]},
+        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]},
+        {"pos": "pseudogene", "op": "e9+", "old": "", "functional": 0, "dbsnp": []}
       ]
     }, 
     "CYP2D6*37": {
