@@ -1383,7 +1383,8 @@
 #        {"pos": 42522624, "op": "SNP.GC", "old": "4168:C>G", "functional": 0, "dbsnp": ["rs75467367"]},
 #        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]},
 #        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]},
-        {"pos": "pseudogene", "op": "e9+", "old": "", "functional": 0, "dbsnp": []}
+#        {"pos": "pseudogene", "op": "e9+", "old": "", "functional": 0, "dbsnp": []}
+        {"pos": "pseudogene", "op": "e8+", "old": "", "functional": 0, "dbsnp": []}
       ]
     }, 
     "CYP2D6*37": {
