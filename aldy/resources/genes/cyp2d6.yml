@@ -1342,14 +1342,14 @@
       "mutations": [
         {"pos": 42528381, "op": "SNP.GC", "old": "-1584:C>G", "functional": 2, "dbsnp": ["rs1080985"]},
         {"pos": 42528223, "op": "SNP.GA", "old": "-1426:C>T", "functional": 0, "dbsnp": ["rs28588594"]}, 
-        {"pos": 42528028, "op": "SNP.TC", "old": "-1236:G>G", "functional": 0, "dbsnp": ["rs867981442"]},
-        {"pos": 42528027, "op": "SNP.TC", "old": "-1235:A>G", "functional": 0, "dbsnp": ["rs28735595"]}, 
+#        {"pos": 42528028, "op": "SNP.TC", "old": "-1236:G>G", "functional": 0, "dbsnp": ["rs867981442"]},
+#        {"pos": 42528027, "op": "SNP.TC", "old": "-1235:A>G", "functional": 0, "dbsnp": ["rs28735595"]}, 
         {"pos": 42527792, "op": "SNP.CT", "old": "-1000:G>A", "functional": 0, "dbsnp": ["rs1080989"]},
         {"pos": 42527532, "op": "SNP.GA", "old": "-740:C>T", "functional": 0, "dbsnp": ["rs28624811"]},
         {"pos": 42527470, "op": "SNP.CT", "old": "-678:G>A", "functional": 0, "dbsnp": ["rs28633410"]},
         {"pos": 42526693, "op": "SNP.GA", "old": "100:C>T", "functional": 1, "dbsnp": ["rs1065852"]}, 
 #        {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
-        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]},
+#        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]},
 #        {"pos": 42526572, "op": "SNP.TG", "old": "220:C>C", "functional": 0, "dbsnp": ["rs1080996"]},
         {"pos": 42526579, "op": "SNP.GC", "old": "213:G>G", "functional": 0, "dbsnp": ["rs1080995"]},
         {"pos": 42526572, "op": "SNP.TG", "old": "220:C>C", "functional": 0, "dbsnp": ["rs1080996"]},
@@ -1733,7 +1733,14 @@
         {"pos": 42524905, "op": "INS.ta", "old": "1887:insTA", "functional": 3, "dbsnp": []}, 
         {"pos": 42524489, "op": "SNP.GA", "old": "2303:C>T", "functional": 0, "dbsnp": ["rs79738337"]}
       ]
-    },  
+    }, 
+    "CYP2D6*61": {
+      "phenotype": {"invivo": "", "invitro": ""}, 
+      "mutations": [
+        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+        {"pos": "pseudogene", "op": "i7+", "old": "", "functional": 0, "dbsnp": []}
+      ]
+    },
     "CYP2D6*62": {
       "phenotype": {"invivo": "", "invitro": "None"}, 
       "mutations": [
