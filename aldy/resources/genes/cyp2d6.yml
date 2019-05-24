@@ -1734,13 +1734,13 @@
         {"pos": 42524489, "op": "SNP.GA", "old": "2303:C>T", "functional": 0, "dbsnp": ["rs79738337"]}
       ]
     }, 
-    "CYP2D6*61": {
-      "phenotype": {"invivo": "", "invitro": ""}, 
-      "mutations": [
+#    "CYP2D6*61": {
+#      "phenotype": {"invivo": "", "invitro": ""}, 
+#      "mutations": [
 #        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
-        {"pos": "pseudogene", "op": "i7+", "old": "", "functional": 0, "dbsnp": []}
-      ]
-    }, 
+#        {"pos": "pseudogene", "op": "i7+", "old": "", "functional": 0, "dbsnp": []}
+#      ]
+#    }, 
     "CYP2D6*62": {
       "phenotype": {"invivo": "", "invitro": "None"}, 
       "mutations": [
