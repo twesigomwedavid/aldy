@@ -949,27 +949,27 @@
         {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
       ]
     }, 
-    "CYP2D6*10DW": {
-      "phenotype": {"invivo": "", "invitro": ""}, 
-      "mutations": [
-        {"pos": 42526693, "op": "SNP.GA", "old": "100:C>T", "functional": 1, "dbsnp": ["rs1065852"]}, 
-        {"pos": 42525755, "op": "SNP.GA", "old": "1039:C>T", "functional": 0, "dbsnp": ["rs1081003"]}, 
-        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
-        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}, 
-        {"pos": 42526548, "op": "SNP.TC", "old_pos": 5491, "old": "CYP2D7:i1:5491", "functional": 0, "dbsnp": ["rs1081000"]}, 
-        {"pos": 42526560, "op": "SNP.TG", "old_pos": 5503, "old": "CYP2D7:i1:5503", "functional": 0, "dbsnp": ["rs28695233"]}, 
-        {"pos": 42526561, "op": "SNP.CG", "old_pos": 5504, "old": "CYP2D7:i1:5504", "functional": 0, "dbsnp": ["rs75276289"]}, 
-        {"pos": 42526566, "op": "SNP.AG", "old_pos": 5509, "old": "CYP2D7:i1:5509", "functional": 0, "dbsnp": ["rs76312385"]}, 
-        {"pos": 42526570, "op": "SNP.GC", "old_pos": 5513, "old": "CYP2D7:i1:5513", "functional": 0, "dbsnp": ["rs74644586"]}, 
-        {"pos": 42526572, "op": "SNP.GT", "old_pos": 5515, "old": "CYP2D7:i1:5515", "functional": 0, "dbsnp": ["rs1080996"]}, 
-        {"pos": 42528027, "op": "SNP.TC", "old": "-1235:A>G", "functional": 0, "dbsnp": ["rs28735595"]}, 
-        {"pos": 42527792, "op": "SNP.CT", "old": "-1000:G>A", "functional": 0, "dbsnp": ["rs1080989"]}, 
-        {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
-        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}, 
-        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
-        {"pos": 42523210, "op": "SNP.TC", "old": "3582:A>G", "functional": 0, "dbsnp": ["rs2004511"]}
-      ]
-    }, 
+#    "CYP2D6*10DW": {
+#      "phenotype": {"invivo": "", "invitro": ""}, 
+#      "mutations": [
+#        {"pos": 42526693, "op": "SNP.GA", "old": "100:C>T", "functional": 1, "dbsnp": ["rs1065852"]}, 
+#        {"pos": 42525755, "op": "SNP.GA", "old": "1039:C>T", "functional": 0, "dbsnp": ["rs1081003"]}, 
+#        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
+#        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}, 
+#        {"pos": 42526548, "op": "SNP.TC", "old_pos": 5491, "old": "CYP2D7:i1:5491", "functional": 0, "dbsnp": ["rs1081000"]}, 
+#        {"pos": 42526560, "op": "SNP.TG", "old_pos": 5503, "old": "CYP2D7:i1:5503", "functional": 0, "dbsnp": ["rs28695233"]}, 
+#        {"pos": 42526561, "op": "SNP.CG", "old_pos": 5504, "old": "CYP2D7:i1:5504", "functional": 0, "dbsnp": ["rs75276289"]}, 
+#        {"pos": 42526566, "op": "SNP.AG", "old_pos": 5509, "old": "CYP2D7:i1:5509", "functional": 0, "dbsnp": ["rs76312385"]}, 
+#        {"pos": 42526570, "op": "SNP.GC", "old_pos": 5513, "old": "CYP2D7:i1:5513", "functional": 0, "dbsnp": ["rs74644586"]}, 
+#        {"pos": 42526572, "op": "SNP.GT", "old_pos": 5515, "old": "CYP2D7:i1:5515", "functional": 0, "dbsnp": ["rs1080996"]}, 
+#        {"pos": 42528027, "op": "SNP.TC", "old": "-1235:A>G", "functional": 0, "dbsnp": ["rs28735595"]}, 
+#        {"pos": 42527792, "op": "SNP.CT", "old": "-1000:G>A", "functional": 0, "dbsnp": ["rs1080989"]}, 
+#        {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
+#        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}, 
+#        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+#        {"pos": 42523210, "op": "SNP.TC", "old": "3582:A>G", "functional": 0, "dbsnp": ["rs2004511"]}
+#      ]
+#    }, 
     "CYP2D6*11": {
       "phenotype": {"invivo": "None  (s)", "invitro": ""}, 
       "mutations": [
