@@ -24,7 +24,7 @@
   "name": "CYP2D6", 
   "rev_comp": 1,
   "exons": {
-    "1": [42526613, 42526793], 
+    "1": [42526613, 42526793],
     "3": [42525034, 42525187], 
     "2": [42525739, 42525911], 
     "5": [42524175, 42524352], 
@@ -1351,13 +1351,13 @@
 #        {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
 #        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]},
 #        {"pos": 42526572, "op": "SNP.TG", "old": "220:C>C", "functional": 0, "dbsnp": ["rs1080996"]},
-        {"pos": 42526579, "op": "SNP.GC", "old": "213:G>G", "functional": 0, "dbsnp": ["rs1080995"]},
-        {"pos": 42526572, "op": "SNP.TG", "old": "220:C>C", "functional": 0, "dbsnp": ["rs1080996"]},
-        {"pos": 42526570, "op": "SNP.CG", "old": "222:C>C", "functional": 0, "dbsnp": ["rs796855613"]},
-        {"pos": 42526566, "op": "SNP.GA", "old": "226:T>T", "functional": 0, "dbsnp": ["rs1080998"]},
-        {"pos": 42526561, "op": "SNP.GC", "old": "231:G>G", "functional": 0, "dbsnp": ["rs29001518"]},
-        {"pos": 42526560, "op": "SNP.GT", "old": "232:A>A", "functional": 0, "dbsnp": ["rs28695233"]},
-        {"pos": 42526548, "op": "SNP.CT", "old": "244:A>A", "functional": 0, "dbsnp": ["rs1081000"]},
+#        {"pos": 42526579, "op": "SNP.GC", "old": "213:G>G", "functional": 0, "dbsnp": ["rs1080995"]},
+#        {"pos": 42526572, "op": "SNP.TG", "old": "220:C>C", "functional": 0, "dbsnp": ["rs1080996"]},
+#        {"pos": 42526570, "op": "SNP.CG", "old": "222:C>C", "functional": 0, "dbsnp": ["rs796855613"]},
+#        {"pos": 42526566, "op": "SNP.GA", "old": "226:T>T", "functional": 0, "dbsnp": ["rs1080998"]},
+#        {"pos": 42526561, "op": "SNP.GC", "old": "231:G>G", "functional": 0, "dbsnp": ["rs29001518"]},
+#        {"pos": 42526560, "op": "SNP.GT", "old": "232:A>A", "functional": 0, "dbsnp": ["rs28695233"]},
+#        {"pos": 42526548, "op": "SNP.CT", "old": "244:A>A", "functional": 0, "dbsnp": ["rs1081000"]},
         {"pos": 42526048, "op": "SNP.GC", "old": "746:C>G", "functional": 0, "dbsnp": ["rs28371701"]},
         {"pos": 42525755, "op": "SNP.GA", "old": "1039:C>T", "functional": 0, "dbsnp": ["rs1081003"]}, 
         {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
@@ -1737,7 +1737,7 @@
     "CYP2D6*61": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
-        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+#        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
         {"pos": "pseudogene", "op": "i7+", "old": "", "functional": 0, "dbsnp": []}
       ]
     },
