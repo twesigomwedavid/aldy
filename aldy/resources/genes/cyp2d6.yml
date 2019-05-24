@@ -1934,7 +1934,7 @@
     "CYP2D6*83": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
-        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}, 
+        {"pos": 42525945, "op": "SNP.AG", "old": "847:T>C", "functional": 0, "dbsnp": ["rs267608282"]}, 
         {"pos": "pseudogene", "op": "e9+", "old": "", "functional": 0, "dbsnp": []}
       ]
     }, 
