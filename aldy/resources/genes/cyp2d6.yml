@@ -1803,7 +1803,7 @@
 #        {"pos": 42528034, "op": "SNP.TC", "old": "-1236:G>G", "functional": 2, "dbsnp": ["rs867981442"]},
         {"pos": 42528381, "op": "SNP.GC", "old": "-1584:C>G", "functional": 2, "dbsnp": ["rs1080985"]},
         {"pos": 42527532, "op": "SNP.GA", "old": "-740:C>T", "functional": 0, "dbsnp": ["rs28624811"]},
-        {"pos": 42527470, "op": "SNP.CT", "old": "-678:G>A", "functional": 0, "dbsnp": ["rs28633410"]}
+        {"pos": 42527470, "op": "SNP.CT", "old": "-678:G>A", "functional": 0, "dbsnp": ["rs28633410"]},
 #       {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
 #       {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}, 
 #       {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
