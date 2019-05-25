@@ -1725,7 +1725,16 @@
     "CYP2D6*61": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
-        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+        {"pos": 42528381, "op": "SNP.GC", "old": "-1584:C>G", "functional": 2, "dbsnp": ["rs1080985"]}, 
+        {"pos": 42527532, "op": "SNP.GA", "old": "-740:C>T", "functional": 0, "dbsnp": ["rs28624811"]},
+        {"pos": 42527470, "op": "SNP.CT", "old": "-678:A>G", "functional": 0, "dbsnp": ["rs28633410"]},
+        {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]},
+        {"pos": 42526048, "op": "SNP.GC", "old": "746:C>G", "functional": 0, "dbsnp": ["rs28371701"]},
+        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]},
+        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]},
+        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]},
+        {"pos": 42523314, "op": "SNP.TC", "old": "3478:A>G", "functional": 0, "dbsnp": ["rs79596243"]},
+        {"pos": 42523308, "op": "SNP.CT", "old": "3484:G>A", "functional": 0, "dbsnp": ["rs867985262"]},
         {"pos": 42523210, "op": "SNP.TC", "old": "3582:A>G", "functional": 0, "dbsnp": ["rs2004511"]}, 
         {"pos": 42523208, "op": "SNP.CT", "old": "3584:G>A", "functional": 0, "dbsnp": ["rs28371730"]},
         {"pos": 42523002, "op": "SNP.GA", "old": "3790:C>T", "functional": 0, "dbsnp": ["rs4987144"]}, 
