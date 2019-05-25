@@ -1738,6 +1738,7 @@
     "CYP2D6*63": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [ 
+        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]},
         {"pos": "pseudogene", "op": "e8+", "old": "", "functional": 0, "dbsnp": []}
       ]
     },
