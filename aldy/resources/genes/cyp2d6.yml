@@ -1735,6 +1735,12 @@
         {"pos": 42522748, "op": "SNP.GA", "old": "4044:C>T", "functional": 1, "dbsnp": ["rs730882171"]}
       ]
     },
+    "CYP2D6*63": {
+      "phenotype": {"invivo": "", "invitro": ""}, 
+      "mutations": [ 
+        {"pos": "pseudogene", "op": "e8+", "old": "", "functional": 0, "dbsnp": []}
+      ]
+    },
     "CYP2D6*64": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
