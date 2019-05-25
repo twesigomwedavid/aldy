@@ -351,7 +351,18 @@
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
         {"pos": 42528027, "op": "SNP.TC", "old": "-1235:A>G", "functional": 0, "dbsnp": ["rs28735595"]}, 
-        {"pos": 42527541, "op": "DEL.TC", "old": "-750:delGA", "functional": 0, "dbsnp": ["rs536645539"]}, 
+        {"pos": 42527541, "op": "DEL.TC", "old": "-750:delGA", "functional": 0, "dbsnp": ["rs536645539"]},
+        {"pos": 42527532, "op": "SNP.GA", "old": "-740:C>T", "functional": 0, "dbsnp": ["rs28624811"]}, 
+        {"pos": 42527470, "op": "SNP.CT", "old": "-678:G>A", "functional": 0, "dbsnp": ["rs28633410"]}, 
+        {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
+        {"pos": 42526048, "op": "SNP.GC", "old": "746:C>G", "functional": 0, "dbsnp": ["rs28371701"]}, 
+        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}, 
+        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
+        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]}, 
+        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+        {"pos": 42523208, "op": "SNP.CT", "old": "3584:G>A", "functional": 0, "dbsnp": ["rs28371730"]}, 
+        {"pos": 42523002, "op": "SNP.GA", "old": "3790:C>T", "functional": 0, "dbsnp": ["rs4987144"]}, 
+        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}, 
         {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]}
       ]
     }, 
@@ -359,8 +370,19 @@
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
         {"pos": 42528027, "op": "SNP.TC", "old": "-1235:A>G", "functional": 0, "dbsnp": ["rs28735595"]}, 
-        {"pos": 42527541, "op": "DEL.TC", "old": "-750:delGA", "functional": 0, "dbsnp": ["rs536645539"]}, 
-        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]}, 
+        {"pos": 42527541, "op": "DEL.TC", "old": "-750:delGA", "functional": 0, "dbsnp": ["rs536645539"]},
+        {"pos": 42527532, "op": "SNP.GA", "old": "-740:C>T", "functional": 0, "dbsnp": ["rs28624811"]}, 
+        {"pos": 42527470, "op": "SNP.CT", "old": "-678:G>A", "functional": 0, "dbsnp": ["rs28633410"]}, 
+        {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
+        {"pos": 42526048, "op": "SNP.GC", "old": "746:C>G", "functional": 0, "dbsnp": ["rs28371701"]}, 
+        {"pos": 42525951, "op": "SNP.AC", "old": "843:T>G", "functional": 0, "dbsnp": ["rs28371702"]}, 
+        {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
+        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]}, 
+        {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+        {"pos": 42523208, "op": "SNP.CT", "old": "3584:G>A", "functional": 0, "dbsnp": ["rs28371730"]}, 
+        {"pos": 42523002, "op": "SNP.GA", "old": "3790:C>T", "functional": 0, "dbsnp": ["rs4987144"]}, 
+        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}, 
+        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]},
         {"pos": 42528381, "op": "SNP.GC", "old": "-1584:C>G", "functional": 2, "dbsnp": ["rs1080985"]}
       ]
     }, 
