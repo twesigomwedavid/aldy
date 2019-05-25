@@ -1940,8 +1940,6 @@
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
         {"pos": 42525945, "op": "SNP.AG", "old": "847:T>C", "functional": 0, "dbsnp": ["rs267608282"]},
-        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]},
-        {"pos": 42522599, "op": "SNP.AG", "old": "4193:T>C", "functional": 0, "dbsnp": ["rs61731577"]},
         {"pos": "pseudogene", "op": "e9+", "old": "", "functional": 0, "dbsnp": []}
       ]
     }, 
