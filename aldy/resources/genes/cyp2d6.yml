@@ -1726,6 +1726,9 @@
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
         {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
+        {"pos": 42523210, "op": "SNP.TC", "old": "3582:A>G", "functional": 0, "dbsnp": ["rs2004511"]}, 
+        {"pos": 42523208, "op": "SNP.CT", "old": "3584:G>A", "functional": 0, "dbsnp": ["rs28371730"]},
+        {"pos": 42523002, "op": "SNP.GA", "old": "3790:C>T", "functional": 0, "dbsnp": ["rs4987144"]}, 
         {"pos": "pseudogene", "op": "i7+", "old": "", "functional": 0, "dbsnp": []}
       ]
     },
@@ -1738,7 +1741,7 @@
     "CYP2D6*63": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [ 
-        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]},
+        {"pos": 42522311, "op": "SNP.CT", "old": "4481:G>A", "functional": 0, "dbsnp": ["rs12169962"]}, 
         {"pos": "pseudogene", "op": "e8+", "old": "", "functional": 0, "dbsnp": []}
       ]
     },
