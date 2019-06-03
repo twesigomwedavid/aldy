@@ -907,7 +907,6 @@
         {"pos": 42524695, "op": "SNP.TC", "old": "2097:A>G", "functional": 0, "dbsnp": ["rs2267447"]},
         {"pos": 42523408, "op": "SNP.TG", "old": "3384:A>C", "functional": 0, "dbsnp": ["rs1985842"]}, 
         {"pos": 42523210, "op": "SNP.TC", "old": "3582:A>G", "functional": 0, "dbsnp": ["rs2004511"]},
-        {"pos": 42523208, "op": "SNP.CT", "old": "3584:G>A", "functional": 0, "dbsnp": ["rs28371730"]},
         {"pos": 42522391, "op": "SNP.GA", "old": "4401:C>T", "functional": 0, "dbsnp": ["rs28371738"]}
       ]
     }, 
