@@ -1009,7 +1009,7 @@
         {"pos": 42528398, "op": "SNP.CA", "old": "-1601:G>T", "functional": 0, "dbsnp": ["rs545591749"]}
       ]
     }, 
-    "CYP2D6*13A": {
+    "CYP2D6*13": {
       "phenotype": {"invivo": "None", "invitro": "None"}, 
       "mutations": [
         {"pos": "pseudogene", "op": "i1-", "old": "", "functional": 0, "dbsnp": []}
