@@ -1015,7 +1015,7 @@
         {"pos": "pseudogene", "op": "i1-", "old": "", "functional": 0, "dbsnp": []}
       ]
     }, 
-    "CYP2D6*13F": {
+    "CYP2D6*16": {
       "phenotype": {"invivo": "None", "invitro": "None"}, 
       "mutations": [
         {"pos": "pseudogene", "op": "e7-", "old": "", "functional": 0, "dbsnp": []}
