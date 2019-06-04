@@ -1950,8 +1950,7 @@
         {"pos": 42525772, "op": "SNP.TA", "old": "1022:A>T", "functional": 1, "dbsnp": ["rs74802369"]}, 
         {"pos": 42525771, "op": "SNP.GT", "old": "1023:C>A", "functional": 1, "dbsnp": ["rs28371706"]}, 
         {"pos": 42525766, "op": "SNP.TC", "old": "1028:A>G", "functional": 1, "dbsnp": ["rs78459009"]}, 
-        {"pos": 42525758, "op": "SNP.AG", "old": "1036:T>C", "functional": 0, "dbsnp": ["rs1135821"]},
-        {"pos": "pseudogene", "op": "e2-", "old": "", "functional": 0, "dbsnp": []}
+        {"pos": 42525758, "op": "SNP.AG", "old": "1036:T>C", "functional": 0, "dbsnp": ["rs1135821"]}
       ]
     }, 
     "CYP2D6*83": {
