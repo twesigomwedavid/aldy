@@ -1351,7 +1351,7 @@
     "CYP2D6*38": {
       "phenotype": {"invivo": "None", "invitro": ""}, 
       "mutations": [
-        {"pos": 42524202, "op": "DEL.AGTC", "old": "2587:delGACT", "functional": 3, "dbsnp": ["rs72549351"]}
+        {"pos": 42524200, "op": "DEL.TCAG", "old": "2587:delGACT", "functional": 3, "dbsnp": ["rs72549351"]}
       ]
     }, 
     "CYP2D6*39": {
