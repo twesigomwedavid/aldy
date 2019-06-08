@@ -2330,7 +2330,9 @@
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
         {"pos": 42526693, "op": "SNP.GA", "old": "100:C>T", "functional": 1, "dbsnp": ["rs1065852"]}, 
-        {"pos": 42525034, "op": "SNP.CT", "old": "1758:G>A", "functional": 1, "dbsnp": ["rs5030865"]}
+        {"pos": 42525034, "op": "SNP.CT", "old": "1758:G>A", "functional": 1, "dbsnp": ["rs5030865"]},
+        {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]},
+        {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
       ]
     }    
   }, 
