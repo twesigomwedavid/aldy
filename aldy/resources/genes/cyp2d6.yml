@@ -1108,7 +1108,7 @@
       "phenotype": {"invivo": "None (m)", "invitro": ""}, 
       "mutations": [
         {"pos": 42525131, "op": "SNP.CG", "old": "1661:G>C", "functional": 0, "dbsnp": ["rs1058164"]}, 
-        {"pos": 42524813, "op": "INS.g", "old": "1973:insG", "functional": 3, "dbsnp": ["rs72549354(k)", "rs763609904"]}, 
+        {"pos": 42524819, "op": "INS.c", "old": "1973:insG", "functional": 3, "dbsnp": ["rs72549354(k)", "rs763609904"]}, 
         {"pos": 42524814, "op": "SNP.GA", "old": "1978:C>T", "functional": 1, "dbsnp": ["rs150163869"]}, 
         {"pos": 42524813, "op": "SNP.AG", "old": "1979:T>C", "functional": 1, "dbsnp": ["rs199535154"]}, 
         {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]}, 
