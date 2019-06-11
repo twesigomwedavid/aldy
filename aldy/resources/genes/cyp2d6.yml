@@ -1775,7 +1775,7 @@
         {"pos": "pseudogene", "op": "e5-", "old": "", "functional": 0, "dbsnp": []}
       ]
     }, 
-    "CYP2D6*68A": {
+    "CYP2D6*68": {
       "phenotype": {"invivo": "None", "invitro": ""}, 
       "mutations": [
         {"pos": 42528223, "op": "SNP.GA", "old": "-1426:C>T", "functional": 0, "dbsnp": ["rs28588594"]}, 
@@ -1786,13 +1786,6 @@
         {"pos": "pseudogene", "op": "i1+", "old": "", "functional": 0, "dbsnp": []}
       ]
     },  
-    "CYP2D6*68B": {
-      "phenotype": {"invivo": "None", "invitro": ""}, 
-      "mutations": [
-        {"pos": 42526693, "op": "SNP.GA", "old": "100:C>T", "functional": 1, "dbsnp": ["rs1065852"]},
-        {"pos": "pseudogene", "op": "i1+", "old": "", "functional": 0, "dbsnp": []}
-      ]
-    }, 
     "CYP2D6*69": {
       "phenotype": {"invivo": "Decr.", "invitro": ""}, 
       "mutations": [
