@@ -1785,6 +1785,7 @@
         {"pos": 42526483, "op": "SNP.CA", "old": "310:G>T", "functional": 0, "dbsnp": ["rs28371699"]}, 
         {"pos": "pseudogene", "op": "i1+", "old": "", "functional": 0, "dbsnp": []}
       ]
+    },  
     "CYP2D6*68B": {
       "phenotype": {"invivo": "None", "invitro": ""}, 
       "mutations": [
