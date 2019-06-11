@@ -37,7 +37,7 @@
   "max_cn": {
   }, 
   "alleles": {
-    "CYP2D6*1A": {
+    "CYP2D6*1": {
       "phenotype": {"invivo": "Normal", "invitro": "Normal"}, 
       "mutations": []
     }, 
