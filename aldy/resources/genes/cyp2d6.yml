@@ -2380,8 +2380,8 @@
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [ 
         {"pos": 42525043, "op": "SNP.TC", "old": "1749:A>G", "functional": 1, "dbsnp": ["rs1135824"]},
-        {"pos": 42525038, "op": "SNP.GT", "old": "1754:A>G", "functional": 1, "dbsnp": ["rs1135825"]},
-        {"pos": 42525037, "op": "SNP.AC", "old": "1755:A>G", "functional": 1, "dbsnp": ["rs1135826"]},
+        {"pos": 42525038, "op": "SNP.GT", "old": "1754:C>A", "functional": 1, "dbsnp": ["rs1135825"]},
+        {"pos": 42525037, "op": "SNP.AC", "old": "1755:T>G", "functional": 1, "dbsnp": ["rs1135826"]},
         {"pos": 42523942, "op": "SNP.GA", "old": "2850:C>T", "functional": 1, "dbsnp": ["rs16947"]},
         {"pos": 42522612, "op": "SNP.CG", "old": "4180:G>C", "functional": 1, "dbsnp": ["rs1135840"]}
       ]
