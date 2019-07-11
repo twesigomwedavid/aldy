@@ -2404,7 +2404,7 @@
     "CYP2D6*124": {
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
-        {"pos": 42522983, "op": "INS.GA", "old": "3810:insTC", "functional": 1, "dbsnp": []}
+        {"pos": 42522983, "op": "INS.ga", "old": "3810:insTC", "functional": 1, "dbsnp": []}
       ]
     },
     "CYP2D6*125": {
