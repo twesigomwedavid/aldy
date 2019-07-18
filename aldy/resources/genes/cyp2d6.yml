@@ -1061,6 +1061,12 @@
         {"pos": 42526656, "op": "INS.a", "old": "137:insT", "functional": 3, "dbsnp": ["rs72549357"]}
       ]
     }, 
+    "CYP2D6*16": {
+      "phenotype": {"invivo": "None", "invitro": "None"}, 
+      "mutations": [
+        {"pos": "pseudogene", "op": "e7-", "old": "", "functional": 0, "dbsnp": []}
+      ]
+    },   
     "CYP2D6*17": {
       "phenotype": {"invivo": "Decr  (d)", "invitro": "Decr  (b)"}, 
       "mutations": [
@@ -1764,6 +1770,12 @@
         {"pos": 42526579, "op": "SNP.GC", "old": "213:G>G", "functional": 0, "dbsnp": ["rs1080995"]}
       ]
     },  
+    "CYP2D6*67": {
+      "phenotype": {"invivo": "None", "invitro": "None"}, 
+      "mutations": [
+        {"pos": "pseudogene", "op": "e5-", "old": "", "functional": 0, "dbsnp": []}
+      ]
+    }, 
     "CYP2D6*68": {
       "phenotype": {"invivo": "None", "invitro": ""}, 
       "mutations": [
@@ -1872,6 +1884,30 @@
       "phenotype": {"invivo": "", "invitro": ""}, 
       "mutations": [
         {"pos": 42522747, "op": "SNP.CT", "old": "4045:G>A", "functional": 1, "dbsnp": ["rs113940699(k)", "rs532668079"]}
+      ]
+    }, 
+    "CYP2D6*76": {
+      "phenotype": {"invivo": "None", "invitro": "None"}, 
+      "mutations": [
+        {"pos": "pseudogene", "op": "e9-", "old": "", "functional": 0, "dbsnp": []}
+      ]
+    }, 
+    "CYP2D6*77": {
+      "phenotype": {"invivo": "None", "invitro": "None"}, 
+      "mutations": [
+        {"pos": "pseudogene", "op": "i7-", "old": "", "functional": 0, "dbsnp": []}
+      ]
+    }, 
+    "CYP2D6*78": {
+      "phenotype": {"invivo": "None", "invitro": "None"}, 
+      "mutations": [
+        {"pos": "pseudogene", "op": "i4-", "old": "", "functional": 0, "dbsnp": []}
+      ]
+    }, 
+    "CYP2D6*79": {
+      "phenotype": {"invivo": "None", "invitro": "None"}, 
+      "mutations": [
+        {"pos": "pseudogene", "op": "e2-", "old": "", "functional": 0, "dbsnp": []}
       ]
     }, 
     "CYP2D6*80": {
