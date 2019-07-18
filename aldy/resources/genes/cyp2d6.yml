@@ -1061,12 +1061,6 @@
         {"pos": 42526656, "op": "INS.a", "old": "137:insT", "functional": 3, "dbsnp": ["rs72549357"]}
       ]
     }, 
-    "CYP2D6*16": {
-      "phenotype": {"invivo": "None", "invitro": "None"}, 
-      "mutations": [
-        {"pos": "pseudogene", "op": "e7-", "old": "", "functional": 0, "dbsnp": []}
-      ]
-    },   
     "CYP2D6*17": {
       "phenotype": {"invivo": "Decr  (d)", "invitro": "Decr  (b)"}, 
       "mutations": [
