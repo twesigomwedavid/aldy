@@ -1,92 +1,181 @@
-from __future__ import print_function
 # 786
-
 # Aldy source: diplotype.py
 #   This file is subject to the terms and conditions defined in
 #   file 'LICENSE', which is part of this source code package.
 
 
-from builtins import map
-from collections import defaultdict, Counter
+from typing import List, Tuple
 
-import sys
+import collections
 
-from .common import *
-
-
-def write_decomposition(sol_id, decomposition, genotype, f):
-   print('# Solution {}'.format(sol_id), file=f)
-   print('# Predicted diplotype: {}'.format(genotype[0]), file=f)
-   print('# Composition: {}'.format(','.join(genotype[1])), file=f)
-   print('\t'.join('Copy Allele Location Type Coverage Effect dbSNP Code Status'.split()), file=f)
-   for i, (allele, mutations) in enumerate(decomposition):
-      for t, m, c in sorted(mutations, key=lambda x: x[1].pos):
-         print('\t'.join(map(str, [
-            i, allele[0] if '/' in allele[0] else allele[1],
-            m.pos, m.op, c,
-            ['NEUTRAL', 'DISRUPTING'][0 if m.functional == 0 else 1],
-            m.aux['dbsnp'], m.aux['old'],
-            t
-         ])), file=f)
-   print(file=f)
+from .common import allele_sort_key
+from .gene import Gene
+from .solutions import MinorSolution
 
 
-def assign_diplotype(gene, solutions, output):
-   if output == '':
-      f = sys.stdout
-   else:
-      f = open(output, 'w')
+OUTPUT_COLS = [
+    "Sample",
+    "Gene",
+    "SolutionID",
+    "Major",
+    "Minor",
+    "Copy",
+    "Allele",
+    "Location",
+    "Type",
+    "Coverage",
+    "Effect",
+    "dbSNP",
+    "Code",
+    "Status",
+]
+"""list[str]: Output column descriptions"""
 
-   print('# Aldy v1.0', file=f)
-   print('# Gene: {}'.format(gene.name), file=f)
-   print('# Number of solutions: {}'.format(len(solutions)), file=f)
-   print(file=f)
 
-   results = []
-   for sol_id, (orig_sol, decomposition) in enumerate(solutions):
-      # solution is the array of (major, minor) tuples
-      sol = [allele_key(x[0]) for x in orig_sol]
-      if len(sol) == 1:
-         res = '*{}/*{}'.format(gene.deletion_allele, *sol)
-      elif len(sol) == 2:
-         res = '*{}/*{}'.format(*sol)
-      else:
-         sol = defaultdict(int, Counter(sol))
-         diplotype, dc = [[], []], 0
-         # Handle tandems
-         for ta, tb in gene.common_tandems:
-            while sol[ta] > 0 and sol[tb] > 0:
-               diplotype[dc % 2] += [ta, tb]
-               dc += 1
-               sol[ta] -= 1
-               sol[tb] -= 1
-         # Handle duplicates
-         for allele, count in sol.items():
-            if count > 0:
-               diplotype[dc % 2] += count * [allele]
-               dc += 1
-         if len(diplotype[1]) == 0:
-            diplotype[1] = [diplotype[0][-1]]
-            diplotype[0] = diplotype[0][:-1]
-         if len(diplotype[0]) > len(diplotype[1]):
-            diplotype[0], diplotype[1] = diplotype[1], diplotype[0]
-         res = '/'.join(['+'.join(['*' + y for y in x]) for x in diplotype])
+def write_decomposition(
+    sample: str, gene: Gene, sol_id: int, minor: MinorSolution, f
+) -> None:
+    """
+    Write an allelic decomposition to the file `f`.
 
-      minor_sol = []
-      for al in orig_sol:
-         if '/' in al[0]:
-            al = '{}|{}'.format(*al)
-         elif '+' in al[0]:
-            al = al[1] + '+'
-         else:
-            al = al[1]
-         minor_sol.append(al)
-      if len(minor_sol) == 1:
-         minor_sol.append(gene.deletion_allele)
+    Args:
+        sample (str): Sample name.
+        gene (:obj:`aldy.gene.Gene`): Gene instance.
+        sol_id (int): Solution ID (each solution must have a different ID).
+        minor (:obj:`aldy.solutions.MinorSolution`):
+            Minor star-allele solution to be written.
+        f (file): Output file.
+    """
 
-      results.append((res, minor_sol))
-      write_decomposition(sol_id, decomposition, (res, minor_sol), f)
+    for copy, a in enumerate(minor.solution):
+        mutations = set(gene.alleles[a.major].func_muts) | set(
+            gene.alleles[a.major].minors[a.minor].neutral_muts
+        )
+        mutations |= set(a.added)
+        mutations -= set(a.missing)
+        items = []
+        if len(mutations) > 0:
+            for m in sorted(mutations):
+                items.append(
+                    [
+                        sample,
+                        gene.name,
+                        sol_id,
+                        minor.diplotype,
+                        ";".join(ay.minor for ay in minor.solution),
+                        copy,
+                        a.minor,
+                        m.pos,
+                        m.op,
+                        -1,
+                        ["NEUTRAL", "DISRUPTING"][bool(m.is_functional)],
+                        m.aux.get("dbsnp", ""),
+                        m.aux.get("old", ""),
+                        "",
+                    ]
+                )
+        else:
+            items.append(
+                [
+                    sample,
+                    gene.name,
+                    sol_id,
+                    minor.diplotype,
+                    ";".join(ay.minor for ay in minor.solution),
+                    copy,
+                    a.minor,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                ]
+            )
+        for it in items:
+            print("\t".join(str(i) for i in it), file=f)
 
-   if output != '':
-      f.close()
-   return results
+
+def estimate_diplotype(gene: Gene, solution: MinorSolution) -> str:
+    """
+    Calculate the diplotype assignment for a minor solution.
+    Assigns a ``diplotype`` attribute of the :obj:`aldy.solutions.MinorSolution`.
+    Relies on the diplotype assignment heuristics to assign correct diplotypes.
+    This heuristics has no biological validity whatsoever--- it is purely used
+    to pretty-print the final solutions.
+
+    Returns:
+        str: Diplotype assignment.
+    """
+
+    del_allele = gene.deletion_allele()
+
+    # solution is the array of (major, minor) tuples
+    majors = [
+        str(allele_sort_key(a.major)[0])
+        + ("-like" if sum(1 for m in a.added if m.is_functional) > 0 else "")
+        for a in solution.solution
+    ]
+    diplotype: Tuple[List[str], List[str]] = ([], [])
+
+    if len(majors) == 1 and del_allele:
+        majors.append(del_allele)
+
+    major_dict = collections.Counter(majors)
+    dc = 0
+
+    # Handle tandems (heuristic that groups common tandems together,
+    #                 e.g. 1, 2, 13 -> 1+13/2 if [1,13] is a common tandem)
+    for ta, tb in gene.common_tandems:
+        while major_dict[ta] > 0 and major_dict[tb] > 0:
+            diplotype[dc % 2].extend([ta, tb])
+            dc += 1
+            major_dict[ta] -= 1
+            major_dict[tb] -= 1
+
+    # Handle duplicates (heuristics that groups duplicate alleles together,
+    #                    e.g. 1, 1, 2 -> 1+1/2)
+    # First check should we split them (e.g. 1, 1, 1, 1 -> 1+1/1+1)?
+    el = list(major_dict.elements())
+    if len(major_dict) == 1 and len(el) % 2 == 0:
+        p, a = len(el) // 2, el[0]
+        diplotype = (p * [a], p * [a])
+        major_dict = collections.Counter()
+    for allele, count in major_dict.items():
+        if count > 1:
+            if len(diplotype[dc % 2]) > len(diplotype[(dc + 1) % 2]):
+                dc += 1
+            diplotype[dc % 2].extend(count * [str(allele)])
+            major_dict[allele] -= count
+            dc += 1
+
+    # Handle the rest
+    for allele, count in major_dict.items():
+        if count > 0:
+            if len(diplotype[dc % 2]) > len(diplotype[(dc + 1) % 2]):
+                dc += 1
+            assert count == 1
+            diplotype[dc % 2].append(str(allele))
+            dc += 1
+
+    # Each diplotype should have at least one item
+    # e.g. 1, 1 -> becomes 1+1/_ due to duplicate heuristic -> fixed to 1/1
+    if len(diplotype[1]) == 0:
+        diplotype = (diplotype[0][:-1], [diplotype[0][-1]])
+
+    # Make sure that the elements are sorted and that the tandems are grouped together
+    result = sorted(diplotype)
+    for i in range(2):
+        nd: List[tuple] = []
+        for ta, tb in gene.common_tandems:
+            if ta in result[i] and tb in result[i]:
+                nd.append((ta, tb))
+                result[i].remove(ta)
+                result[i].remove(tb)
+        nd += [(x,) for x in result[i]]
+        result[i] = [f for e in sorted(nd) for f in e]
+
+    res = "/".join("+".join("*{}".format(y) for y in x) for x in result)
+    solution.diplotype = res
+    return res
