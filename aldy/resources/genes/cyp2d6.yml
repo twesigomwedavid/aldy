@@ -1813,6 +1813,13 @@
         {"pos": 42525298, "op": "SNP.AG", "old": "1494:T>C", "functional": 0, "dbsnp": ["rs267608306"]}
       ]
     }, 
+    "CYP2D6*71W": {
+      "phenotype": {"invivo": "", "invitro": ""}, 
+      "mutations": [
+        {"pos": 42526668, "op": "SNP.CT", "old": "125:G>A", "functional": 1, "dbsnp": ["rs118203758"]}, 
+        {"pos": 42525298, "op": "SNP.AG", "old": "1494:T>C", "functional": 0, "dbsnp": ["rs267608306"]}
+      ]
+    }, 
     "CYP2D6*72": {
       "phenotype": {"invivo": "", "invitro": "Decr."}, 
       "mutations": [
