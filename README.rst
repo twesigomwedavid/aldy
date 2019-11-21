@@ -8,6 +8,8 @@ Aldy
 .. image:: https://readthedocs.org/projects/aldy/badge/?version=latest
     :target: https://aldy.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
+.. image:: https://codecov.io/github/inumanag/aldy/coverage.svg?branch=master
+    :target: https://codecov.io/github/inumanag/aldy
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
@@ -47,16 +49,19 @@ Aldy requires a mixed integer solver to run.
 
 The following solvers are currently supported:
 
-* `Gurobi <http://www.gurobi.com>`_ (**recommended**):
+* `CBC / Google OR-Tools <https://developers.google.com/optimization/>`_:
+  a free, open-source MIP solver that is shipped by default with Google's OR-Tools.
+  `pip` installs it by default when installing Aldy.
+
+* `Gurobi <http://www.gurobi.com>`_:
   a commercial solver which is free for academic purposes.
-  Most thoroughly tested solver.
+  Most thoroughly tested solver: if you encounter any issues with CBC, try Gurobi.
   After installing it, don't forget to install ``gurobipy`` package by going to
   Gurobi's installation directory
   (e.g. ``/opt/gurobi/linux64`` on Linux or ``/Library/gurobi751/mac64/`` on macOS)
   and typing::
 
       python3 setup.py install
-
 
 * `SCIP <http://scip.zib.de>`_: another solver which is also free for academic purposes.
   SCIP is easier to install than Gurobi (no registration or activation required).
@@ -66,10 +71,6 @@ The following solvers are currently supported:
   SCIP bindings via `pip`: ``pip install pyscipopt``. If it fails, make sure to set
   `SCIPOPTDIR` environmental variable to point to SCIP's install directory.
 
-
-* `CBC / Google OR-Tools <https://developers.google.com/optimization/>`_:
-  a free, open-source MIP solver that is shipped by default with Google's OR-Tools.
-  Install OR-Tools via ``pip install ortools`` to use this solver.
 
 
 Sanity check
@@ -108,7 +109,7 @@ In case everything is set up properly, you should see something like this::
 Running
 =======
 
-Aldy needs a SAM, BAM, CRAM or a DeeZ file for genotyping.
+Aldy needs a SAM, BAM, or a CRAM file for genotyping.
 We will be using BAM as an example.
 
 .. attention::
@@ -180,7 +181,8 @@ Output
 ======
 
 Aldy will by default generate the following file: ``file-[gene].aldy``
-(default location can be changed via ``-o`` parameter),
+(default location can be changed via ``-o`` parameter).
+Aldy also supports VCF file output: just append `.vcf` to the output file name.
 The summary of results are shown at the end of the output::
 
     $ aldy -p pgrnseq-v2 -g cyp2d6 NA19788_x.bam
@@ -262,6 +264,16 @@ The columns stand for:
       but is found in the sample (this indicates that Aldy found a novel minor star-allele)
     + ``MISSING``: neutral mutation is associated with the star-allele in the database,
       but is **NOT** found in the sample (this also indicates that Aldy found a novel minor star-allele)
+
+VCF support
+-----------
+
+The output will be a VCF file if the output file extension is `.vcf`. 
+Aldy will report a VCF sample for each potential solution, and the appropriate genotypes.
+Aldy will also output tags `MA` and `MI` for major and minor solutions.
+
+  **Note:** VCF is not optimal format for star-allele calling. Unless you really need it,
+  we recommend using Aldy's default format.
 
 
 Problems & Debugging
@@ -404,7 +416,27 @@ Commands:
 
 * ``show``
 
-  Show all copy number configurations supported by a gene (requires ``--gene``).
+  Show a gene description (requires ``--gene``).
+
+  - ``-g, --gene GENE``
+
+    Gene profile.
+
+
+  Optional parameters:
+
+  - ``-c, --cn-config [CN_CONFIG]``
+
+    Describe the copy number configuration CN_CONFIG.
+
+  - ``-m, --major [MAJOR]``
+
+    Describe the major star-allele MAJOR.
+
+  - ``-M, --minor [MINOR]``
+
+    Describe the minor star-allele MINOR.
+
 
 * ``profile [FILE]``
 
@@ -419,7 +451,7 @@ Commands:
 
   - ``FILE``
 
-    SAM, BAM, CRAM or DeeZ file. CRAM and DeeZ require ``--reference`` as well.
+    SAM, BAM, or CRAM file. CRAM requires ``--reference`` as well.
 
   - ``-T, --threshold THRESHOLD``
 
@@ -469,7 +501,7 @@ Commands:
 
   - ``-r, --reference REF``
 
-    FASTA reference for reference-encoded CRAM/DeeZ files.
+    FASTA reference for reference-encoded CRAM files.
 
   - ``-n, --cn-neutral-region CN_NEUTRAL``
 
@@ -499,6 +531,18 @@ Commands:
     Larger values mean lower likelihood of seeing fusions.
 
     *Default:* 0.1
+
+
+Acknowledgements
+================
+
+The following people made Aldy much better software:
+
+- Michael Ford `@michael-ford <https://github.com/michael-ford>`_
+- Farid Rashidi `@faridrashidi <https://github.com/faridrashidi>`_
+- David Twesigomwe `@twesigomwedavid <https://github.com/twesigomwedavid>`_
+- Lawrence Hon `@lhon <https://github.com/lhon>`_
+- Zach Langley `@zlangley <https://github.com/zlangley>`_
 
 
 Contact & Bug Reports

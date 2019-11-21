@@ -1,0 +1,5 @@
+[run]
+omit =
+    aldy/remap.py
+    aldy/tests/*
+    setup.py

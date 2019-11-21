@@ -19,6 +19,7 @@ import traceback
 import re
 import pytest
 
+from . import common
 from .common import log, script_path, AldyException, td, colorize
 from .gene import Gene, GRange
 from .cn import LEFT_FUSION_PENALTY
@@ -27,15 +28,15 @@ from .genotype import genotype
 from .version import __version__
 
 
-def main():
+def main(argv):
     """
     The main entry point.
     """
 
-    parser, args = _get_args()
+    parser, args = _get_args(argv)
 
     # Set the logging verbosity
-    level = args.verbosity.lower()
+    level = (args.verbosity if "verbosity" in args else "I").lower()
     level = next(
         v
         for k, v in logbook.base._reverse_level_names.items()
@@ -62,17 +63,30 @@ def main():
     log.info("*** Free for non-commercial/academic use only.")
 
     try:
-        if args.subparser == "help":
+        if not args.subparser or args.subparser == "help":
             parser.print_help()
         elif args.subparser == "license":
             _print_licence()
         elif args.subparser == "test":
             _run_test()
         elif args.subparser == "show":
-            database_file = script_path(
+            db_file = script_path(
                 "aldy.resources.genes/{}.yml".format(args.gene.lower())
             )
-            Gene(database_file).print_configurations()
+            if os.path.exists(db_file):
+                gene_db = db_file
+            else:
+                gene_db = args.gene
+            with open(gene_db):  # Check if file exists
+                pass
+            if args.minor:
+                Gene(gene_db).print_minors(args.minor)
+            elif args.major:
+                Gene(gene_db).print_majors(args.major)
+            elif args.cn_config:
+                Gene(gene_db).print_cns(args.cn_config)
+            else:
+                Gene(gene_db).print_summary()
         elif args.subparser == "profile":
             p = Sample.load_sam_profile(args.file)
             for i in p:
@@ -127,7 +141,7 @@ def main():
         exit(1)
 
 
-def _get_args():
+def _get_args(argv):
     """
     Parse command-line arguments.
     """
@@ -161,7 +175,7 @@ def _get_args():
         parents=[base],
     )
     genotype_parser.add_argument(
-        "file", nargs="?", help="Input file in SAM, BAM, CRAM or DeeZ format."
+        "file", nargs="?", help="Input file in SAM, BAM or CRAM format."
     )
     genotype_parser.add_argument(
         "--gene",
@@ -195,7 +209,7 @@ def _get_args():
         "--reference",
         "-r",
         default=None,
-        help="Genome reference used for reading CRAM or DeeZ files",
+        help="Genome reference used for reading CRAM files",
     )
     genotype_parser.add_argument(
         "--cn-neutral-region",
@@ -282,12 +296,19 @@ def _get_args():
     _ = subparsers.add_parser("license", parents=[base], help="Show Aldy license")
 
     show_parser = subparsers.add_parser(
-        "show",
-        parents=[base],
-        help="Show all available copy number configurations for a given gene.",
+        "show", parents=[base], help="Show database definitions for a given gene."
     )
     show_parser.add_argument(
-        "--gene", "-g", default="all", help="Gene whose configurations are to be shown."
+        "--gene", "-g", required=True, help="Gene whose configurations are to be shown."
+    )
+    show_parser.add_argument(
+        "--major", "-m", default=None, help="Show a major star-allele definition."
+    )
+    show_parser.add_argument(
+        "--cn-config", "-c", default=None, help="Show a copy number configuration."
+    )
+    show_parser.add_argument(
+        "--minor", "-M", default=None, help="Show a minor star-allele definition."
     )
 
     profile_parser = subparsers.add_parser(
@@ -304,7 +325,7 @@ def _get_args():
         "help", parents=[base], help="Show program usage and exit."
     )
 
-    return parser, parser.parse_args()
+    return parser, parser.parse_args(argv)
 
 
 def _print_licence():
@@ -405,6 +426,9 @@ def _genotype(gene: str, output: Optional[Any], args) -> None:
                 run(prefix)
             finally:
                 log.info("Preparing debug archive...")
+                if common._json:
+                    common._json.close()
+                    common._json = None
                 os.system(f"tar czf {args.debug}.tar.gz -C {tmp} .")
     else:
         run(None)
@@ -418,5 +442,9 @@ def _run_test() -> None:
     pytest.main(["--pyargs", "aldy"])
 
 
+def console():
+    main(sys.argv[1:])
+
+
 if __name__ == "__main__":
-    main()
+    console()

@@ -13,7 +13,7 @@ from aldy.common import script_path
 
 @pytest.fixture
 def toy_gene():
-    return Gene(script_path("aldy.tests/toy.yml"))
+    return Gene(script_path("aldy.tests.resources/toy.yml"))
 
 
 @pytest.fixture
@@ -30,7 +30,7 @@ def pytest_generate_tests(metafunc):
     path = metafunc.config.getoption("samples")
     solvers = metafunc.config.getoption("solvers")
     if solvers is None:
-        solvers = "gurobi"
+        solvers = "any"
     solvers = solvers.split(",")
 
     if "solver" in metafunc.fixturenames:

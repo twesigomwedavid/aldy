@@ -7,7 +7,6 @@
 from typing import Tuple, Iterable
 
 import pkg_resources
-import os
 import re
 import time
 import pprint
@@ -127,7 +126,9 @@ class GRange(collections.namedtuple("GRange", ["chr", "start", "end"])):
         Returns:
             str
         """
-        return "{}:{}-{}".format(prefix + self.chr, self.start - 500, self.end + 1)
+        return "{}:{}-{}".format(
+            prefix + self.chr, self.start - pad_left, self.end + pad_right
+        )
 
     def __str__(self):
         return self.samtools(0, 0, "")
@@ -211,24 +212,7 @@ def td(s: str) -> str:
     return textwrap.dedent(s)
 
 
-def static_vars(**kwargs):
-    """
-    Decorator that adds static variables to a function.
-
-    Usage::
-
-        @static_vars(var=init_val)
-    """
-
-    def decorate(func):
-        for k in kwargs:
-            setattr(func, k, kwargs[k])
-        return func
-
-    return decorate
-
-
-def timing(f):
+def timing(f):  # pragma: no cover
     """
     Decorator for timing a function.
     Prints the time spent in the function after once it is completed.
@@ -291,28 +275,6 @@ def colorize(text: str, color: str = "green") -> str:
     return logbook._termcolors.colorize(color, text)
 
 
-def check_path(cmd: str) -> bool:
-    """
-    Returns:
-        bool: ``True`` if ``cmd`` is executable (in ``PATH`` or in the local directory).
-    """
-
-    def is_exe(path):
-        """
-        Based on
-        http://stackoverflow.com/questions/377017/test-if-executable-exists-in-python
-        """
-        return os.path.isfile(path) and os.access(path, os.X_OK)
-
-    if not is_exe(cmd):
-        for path in os.environ["PATH"].split(os.pathsep):
-            path = path.strip('"')
-            if is_exe(os.path.join(path, cmd)):
-                return True
-        return False
-    return True
-
-
 _json = None
 
 
@@ -326,18 +288,3 @@ def json_print(debug, *args, **kwargs):
     if not _json:
         _json = open(f"{debug}.json", "w")
     print(*args, **kwargs, flush=True, file=_json)
-
-
-class DictWrapper:
-    """
-    Dictionary wrapper that hijacks `__getattr__` to allow element access.
-    """
-
-    def __init__(self, d):
-        self.d = d
-
-    def __getattr__(self, key):
-        if key in self.d:
-            return self.d[key]
-        else:
-            return None

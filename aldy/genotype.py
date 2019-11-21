@@ -50,7 +50,7 @@ def genotype(
             Gene name (if it is located in the Aldy's gene database)
             or the location of a gene database in YML format.
         sam_path (str):
-            Location of SAM/BAM/CRAM/DeeZ file that is to be analyzed.
+            Location of SAM/BAM/CRAM file that is to be analyzed.
         profile (str):
             Coverage profile (e.g. 'illumina').
             Can be ``None`` if ``cn_solution`` is provided.
@@ -81,7 +81,7 @@ def genotype(
             DEPRECATED: currently does nothing.
             Default is ``False``.
         reference (str, optional):
-            A reference genome for reading DeeZ or CRAM files.
+            A reference genome for reading CRAM files.
             Default is ``None``.
         gap (float):
             Relative optimality gap. Use non-zero values to allow non-optimal solutions.
@@ -186,6 +186,8 @@ def genotype(
         )
     log.debug("*" * 80)
     json_print(debug, "],")
+    if len(major_sols) == 0:
+        raise AldyException("No major solutions found!")
 
     major_sols = [
         solutions.MajorSolution(
@@ -226,6 +228,12 @@ def genotype(
         )
         n.diplotype = m.diplotype
         minor_sols.append(n)
+
+    if len(minor_sols) == 0:
+        raise AldyException(
+            "Aldy could not phase any major solution. "
+            + "Please run with  --debug parameter and notify the authors of Aldy."
+        )
     min_minor_score = min(minor_sols, key=lambda m: m.score).score
     minor_sols = sorted(
         [m for m in minor_sols if m.score - min_minor_score - gap < SOLUTION_PRECISION],
@@ -235,7 +243,8 @@ def genotype(
     json_print(debug, "  ],")
 
     log.info(f"Best {gene.name} star-alleles for {sample_name}:")
-    if output_file:
+    is_vcf = output_file and output_file.name[-4:] == ".vcf"
+    if output_file and not is_vcf:
         print("#" + "\t".join(OUTPUT_COLS), file=output_file)
     for i, minor_sol in enumerate(minor_sols):
         log.info(f"  {i + 1:2}: {minor_sol.diplotype}")
@@ -244,11 +253,13 @@ def genotype(
         log.info(f"      Minor: {t}")
         conf = (min_minor_score + SLACK) / (minor_sol.score + SLACK)
         log.info(f"      Confidence: {conf:.2f} (score = {minor_sol.score:.2f})")
-        if output_file:
+        if output_file and not is_vcf:
             print(f"#Solution {i + 1}: {minor_sol._solution_nice()}", file=output_file)
             diplotype.write_decomposition(
                 sample_name, gene, i + 1, minor_sol, output_file
             )
+    if is_vcf:
+        diplotype.write_vcf(sample_name, gene, sample.coverage, minor_sols, output_file)
     json_print(debug, "},")
 
     return minor_sols
